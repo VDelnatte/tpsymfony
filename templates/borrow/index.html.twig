@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Borrow index{% endblock %}
+
+{% block body %}
+    <h1>Emprunts</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Emprunté par</th>
+                <th>Livre</th>
+                <th>Statu</th>
+                <th>Date d'emprunt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for borrow in borrows %}
+            <tr>
+                <td>{{ borrow.id }}</td>
+                <td>{{ borrow.user.name }}</td>
+                <td>{{ borrow.book.title }}</td>
+                <td>{{ borrow.status }}</td>
+                <td>{{ borrow.borrowDate ? borrow.borrowDate|date('d-m-Y') : '' }}</td>
+                <td>
+
+                </td>
+                <td>
+                    <a href="{{ path('app_borrow_show', {'id': borrow.id}) }}">Voir</a>
+                    <a href="{{ path('app_borrow_edit', {'id': borrow.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="{{ path('app_borrow_new') }}">Nouvel emprunt</a>
+{% endblock %}

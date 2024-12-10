@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Borrow{% endblock %}
+
+{% block body %}
+    <h1>Saisir un nouvel emprunt</h1>
+
+    {{ include('borrow/_form.html.twig') }}
+    <br>
+    <a href="{{ path('app_borrow_index') }}">Retour à la liste </a>
+{% endblock %}

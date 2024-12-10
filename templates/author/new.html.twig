@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Author{% endblock %}
+
+{% block body %}
+    <h1>Nouvel auteur :</h1>
+
+    {{ include('author/_form.html.twig') }}
+    <br>
+    <a href="{{ path('app_author_index') }}">Retour à la liste</a>
+{% endblock %}
